@@ -26,7 +26,11 @@
 	<div class="site-inner">
 		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
 
-		<header id="masthead" class="site-header" role="banner">
+    <?php if ( is_front_page() && is_home() ) : ?>
+      <header id="masthead" class="site-header" role="banner">
+    <?php else : ?>
+      <header id="masthead" class="site-header not-front-page" role="banner">
+    <?php endif; ?>
 			<div class="site-header-main">
 				<div class="site-branding">
 					<?php twentysixteen_the_custom_logo(); ?>
@@ -34,7 +38,16 @@
 					<?php if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+            <ul class="header-list">
+              <li><a href="https://wovn.io/contact">Contact Us</a></li>
+              <li><a href="https://wovn.io/pricing">Pricing</a></li>
+            </ul>
+            <div id="breadcrumb-header">
+              <ol>
+                <li class="breadcrumb-list-show">Support</li>
+                <li class="breadcrumb-list-show"><?php the_title() ?></li>
+              </ol>
+            </div>
 					<?php endif;
 
 					$description = get_bloginfo( 'description', 'display' );
