@@ -44,7 +44,7 @@
             </ul>
             <div id="breadcrumb-header">
               <ol>
-                <li class="breadcrumb-list-show">Support</li>
+                <li class="breadcrumb-list-show"><a href="/support">Support</a></li>
                 <li class="breadcrumb-list-show"><?php the_title() ?></li>
               </ol>
             </div>
